@@ -6,14 +6,14 @@ var bitcore = module.exports;
 bitcore.version = 'v' + require('./package.json').version;
 bitcore.versionGuard = function(version) {
   if (version !== undefined) {
-    var message = 'More than one instance of bitcore-lib found. ' +
+    var message = 'More than one instance of bitcore-lib-cash found. ' +
       'Please make sure to require bitcore-lib and check that submodules do' +
       ' not also include their own bitcore-lib dependency.';
     throw new Error(message);
   }
 };
-bitcore.versionGuard(global._bitcore);
-global._bitcore = bitcore.version;
+bitcore.versionGuard(global._bitcoreCash);
+global._bitcoreCash = bitcore.version;
 
 // crypto
 bitcore.crypto = {};
@@ -37,6 +37,8 @@ bitcore.util = {};
 bitcore.util.buffer = require('./lib/util/buffer');
 bitcore.util.js = require('./lib/util/js');
 bitcore.util.preconditions = require('./lib/util/preconditions');
+bitcore.util.base32 = require('./lib/util/base32');
+bitcore.util.convertBits = require('./lib/util/convertBits');
 
 // errors thrown by the library
 bitcore.errors = require('./lib/errors');
